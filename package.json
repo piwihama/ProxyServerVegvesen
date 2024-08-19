@@ -1,0 +1,20 @@
+{
+  "name": "my-proxy-server",
+  "version": "1.0.0",
+  "description": "A proxy server for fetching vehicle data from Vegvesen API",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.7",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": ">=14.x"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}

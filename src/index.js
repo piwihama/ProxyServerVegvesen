@@ -1,0 +1,34 @@
+import express from 'express';
+import fetch from 'node-fetch';
+import cors from 'cors';
+
+const app = express();
+app.use(cors());
+
+app.get('/vehicle-data/:regNumber', async (req, res) => {
+  const regNumber = req.params.regNumber;
+
+  try {
+    const response = await fetch(`https://www.vegvesen.no/ws/no/vegvesen/kjoretoy/felles/datautlevering/enkeltoppslag/kjoretoydata?kjennemerke=${regNumber}`, {
+      method: 'GET',
+      headers: {
+        'SVV-Authorization': `Apikey ${process.env.SVV_AUTH_KEY}`,
+      },
+    });
+
+    if (!response.ok) {
+      return res.status(response.status).json({ error: `HTTP error! status: ${response.status}` });
+    }
+
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching data from Vegvesen:', error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

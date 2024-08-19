@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "VegvesenProxyserver",
+			"path": "../VegvesenProxyserver"
+		},
+		{
+			"name": "proxy-server",
+			"path": "../RimeligAuksjon/proxy-server"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}
