@@ -12,7 +12,7 @@ app.get('/vehicle-data/:regNumber', async (req, res) => {
     const response = await fetch(`https://www.vegvesen.no/ws/no/vegvesen/kjoretoy/felles/datautlevering/enkeltoppslag/kjoretoydata?kjennemerke=${regNumber}`, {
       method: 'GET',
       headers: {
-        'SVV-Authorization': `Apikey ${process.env.SVV_AUTH_KEY}`,
+        'SVV-Authorization': `Apikey e59b5fa7-0331-4359-9c99-bbe1a520db87`,
       },
     });
 
